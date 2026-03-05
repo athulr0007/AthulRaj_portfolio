@@ -34,7 +34,7 @@ const projects = [
     description:
       "Complete event management with responsive interfaces and API integration for event creation and management.",
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
-    liveLink: "crowd-seven.vercel.app",
+    liveLink: "https://crowd-seven.vercel.app",
     githubLink: "https://github.com/athulr0007/Event-booking-website-2.0.git",
     image: projectEvent,
   },
