@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import athulPhoto from "@/assets/IMG_0083(1).png";
+import athulPhoto from "@/assets/my_image.png";
 import Scene3D from "./Scene3D";
 
 const HeroSection = () => {

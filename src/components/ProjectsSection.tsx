@@ -5,6 +5,7 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import projectAI from "@/assets/project-ai-interview.jpg";
 import projectSocial from "@/assets/project-social-media.jpg";
 import projectEvent from "@/assets/project-event-mgmt.jpg";
+import projectCurrency from "@/assets/project-currency.jpg";
 import projectCulinary from "@/assets/project-culinary.jpg";
 
 const projects = [
@@ -40,6 +41,16 @@ const projects = [
   },
   {
     number: "04",
+    title: "Currency Converter",
+    description:
+      "Real-time currency converter with 150+ fiat currencies and 500+ crypto. Features live rates, instant conversion, pinned favorites, fee calculator, and multi-currency comparison — built with a premium dark-gold UI.",
+    tech: ["React.js", "TypeScript", "Vite", "Framer Motion", "CoinGecko API"],
+    liveLink: "https://currency-convertor-inky-nine.vercel.app",
+    githubLink: "https://github.com/athulr0007/Currency_convertor.git",
+    image: projectCurrency,
+  },
+  {
+    number: "05",
     title: "Culinary Compass",
     description:
       "A dynamic recipe recommendation web application that helps users discover new dishes and cooking inspiration.",
@@ -60,11 +71,11 @@ const ProjectCard = ({ project, index }: { project: (typeof projects)[0]; index:
       initial={{ opacity: 0, y: 100 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9, delay: index * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-      className="group relative"
+      className="group relative h-full" // ← h-full so motion div fills grid cell
     >
-      <div className="card-glass rounded-2xl sm:rounded-3xl overflow-hidden hover:border-primary/30 transition-all duration-500">
-        {/* Project image */}
-        <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+      <div className="card-glass rounded-2xl sm:rounded-3xl overflow-hidden hover:border-primary/30 transition-all duration-500 h-full flex flex-col">
+        {/* Project image — fixed height */}
+        <div className="relative h-48 sm:h-56 md:h-64 flex-shrink-0 overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
@@ -77,31 +88,50 @@ const ProjectCard = ({ project, index }: { project: (typeof projects)[0]; index:
             {project.number}
           </span>
 
-          {/* Links overlay */}
-          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex gap-2">
-            {/* TODO: Update with actual links */}
-            <a href={project.githubLink} className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-background/60 backdrop-blur-md border border-border/50 flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-all" aria-label="GitHub">
-              <Github size={14} />
-            </a>
-            <a href={project.liveLink} className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-background/60 backdrop-blur-md border border-border/50 flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-all" aria-label="Live Demo">
-              <ExternalLink size={14} />
-            </a>
-          </div>
+         {/* Links overlay */}
+<div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex gap-2">
+  <a
+    href={project.githubLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-background/60 backdrop-blur-md border border-border/50 flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-all"
+    aria-label="GitHub"
+  >
+    <Github size={14} />
+  </a>
+  <a
+    href={project.liveLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-background/60 backdrop-blur-md border border-border/50 flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-all"
+    aria-label="Live Demo"
+  >
+    <ExternalLink size={14} />
+  </a>
+</div>
         </div>
 
-        {/* Content */}
-        <div className="p-6 sm:p-8 md:p-10">
-          <span className="font-mono text-[10px] sm:text-xs text-primary tracking-[0.2em]">PROJECT {project.number}</span>
+        {/* Content — flex-grow so it fills remaining space equally */}
+        <div className="p-6 sm:p-8 md:p-10 flex flex-col flex-grow">
+          <span className="font-mono text-[10px] sm:text-xs text-primary tracking-[0.2em]">
+            PROJECT {project.number}
+          </span>
 
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 mb-3 sm:mb-4 group-hover:text-gradient transition-all duration-300 tracking-tight">
             {project.title}
           </h3>
 
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-lg">{project.description}</p>
+          {/* Description — flex-grow pushes tech + link to bottom */}
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-lg flex-grow">
+            {project.description}
+          </p>
 
           <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 sm:mb-6">
             {project.tech.map((t) => (
-              <span key={t} className="font-mono text-[9px] sm:text-[10px] px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-secondary text-muted-foreground tracking-wider">
+              <span
+                key={t}
+                className="font-mono text-[9px] sm:text-[10px] px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-secondary text-muted-foreground tracking-wider"
+              >
                 {t}
               </span>
             ))}
@@ -109,7 +139,7 @@ const ProjectCard = ({ project, index }: { project: (typeof projects)[0]; index:
 
           <a
             href={project.liveLink}
-            className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs text-primary hover:gap-3 transition-all duration-300 tracking-wider"
+            className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs text-primary hover:gap-3 transition-all duration-300 tracking-wider mt-auto"
           >
             VIEW PROJECT <ArrowUpRight size={14} />
           </a>
@@ -136,7 +166,8 @@ const ProjectsSection = () => {
           </p>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+        {/* items-stretch makes all cards in the same row equal height */}
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           {projects.map((project, i) => (
             <ProjectCard key={project.number} project={project} index={i} />
           ))}
@@ -150,7 +181,9 @@ const ProjectsSection = () => {
           className="card-glass rounded-2xl sm:rounded-3xl p-8 sm:p-10 border-dashed flex items-center justify-center min-h-[150px] sm:min-h-[200px] mt-6 sm:mt-8"
         >
           <div className="text-center">
-            <span className="font-mono text-[10px] sm:text-xs text-muted-foreground tracking-[0.3em]">MORE COMING SOON</span>
+            <span className="font-mono text-[10px] sm:text-xs text-muted-foreground tracking-[0.3em]">
+              MORE COMING SOON
+            </span>
           </div>
         </motion.div>
       </div>
