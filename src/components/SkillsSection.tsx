@@ -7,7 +7,7 @@ const skillGroups = [
     title: "Frontend",
     skills: [
       { name: "React.js", level: 90 },
-      { name: "JavaScript (ES6+)", level: 88 },
+      { name: "JavaScript (ES6+)", level: 90 },
       { name: "HTML5 / CSS3", level: 92 },
       { name: "Material UI", level: 75 },
       { name: "Bootstrap", level: 80 },
@@ -18,8 +18,8 @@ const skillGroups = [
     skills: [
       { name: "Node.js", level: 85 },
       { name: "Express.js", level: 85 },
-      { name: "REST API Design", level: 88 },
-      { name: "JWT Authentication", level: 82 },
+      { name: "REST API Design", level: 90 },
+      { name: "JWT Authentication", level: 95 },
     ],
   },
   {
@@ -37,7 +37,7 @@ const skillGroups = [
       { name: "Python", level: 70 },
       { name: "C Programming", level: 65 },
       { name: "MVC Architecture", level: 80 },
-      { name: "AI Integration", level: 72 },
+      { name: "AI Integration", level: 89 },
     ],
   },
 ];

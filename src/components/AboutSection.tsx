@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 const stats = [
   { value: "6+", label: "Months Exp" },
-  { value: "4+", label: "Projects" },
+  { value: "5+", label: "Projects" },
   { value: "MERN", label: "Stack" },
 ];
 

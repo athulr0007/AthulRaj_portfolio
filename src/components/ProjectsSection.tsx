@@ -154,7 +154,7 @@ const ProjectsSection = () => {
     <section className="py-20 sm:py-36 relative" id="projects">
       <div className="section-container">
         <ScrollReveal>
-          <span className="font-mono text-xs text-primary tracking-[0.3em]">03 — PROJECTS</span>
+          <span className="font-mono text-xs text-primary tracking-[0.3em]">05 — PROJECTS</span>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
